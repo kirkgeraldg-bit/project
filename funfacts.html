@@ -1,0 +1,58 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Share a Fun Fact - Barça Fan Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+    <h1>Share a Fun Fact</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="players.html">Players</a>
+    <a href="funfacts.html">Fun Facts</a>
+</nav>
+
+<section>
+    <h2>Share a Fun Fact About FC Barcelona</h2>
+    <p>Submit your fun fact and see it appear below!</p>
+
+    <!-- Form -->
+    <form id="funfactForm">
+        <textarea id="fact" rows="4" placeholder="Type your fun fact here..." required></textarea><br><br>
+        <button type="submit">Share Fun Fact</button>
+    </form>
+
+    <!-- Submitted Facts -->
+    <h3>Fun Facts Submitted:</h3>
+    <ul id="funfactList"></ul>
+</section>
+
+<footer style="margin-top: 330px;">
+    <p>Educational Project | Unofficial Fan Site</p>
+</footer>
+
+<script>
+const form = document.getElementById("funfactForm");
+const list = document.getElementById("funfactList");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const fact = document.getElementById("fact").value;
+    if(fact.trim() !== ""){
+        const li = document.createElement("li");
+        li.textContent = fact;
+        list.appendChild(li);
+        form.reset();
+    }
+});
+</script>
+
+</body>
+</html>
